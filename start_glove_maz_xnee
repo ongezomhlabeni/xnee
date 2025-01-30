@@ -28,12 +28,24 @@ apt update >/dev/null;apt -y install apt-utils psmisc libreadline-dev dialog lib
 
 sleep 2
 
-num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
+array=()
+for i in {a..z} {A..Z} {0..9}; 
+   do
+   array[$RANDOM]=$i
+done
+
 currentdate=$(date '+%d-%b-%Y_Bitr_')
 ipaddress=$(curl -s api.ipify.org)
-underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
-currentdate+=$underscored_ip
+num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
 used_num_of_cores=`expr $num_of_cores - 2`
+underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
+underscore="_"
+underscored_ip+=$underscore
+currentdate+=$underscored_ip
+
+randomWord=$(printf %s ${array[@]::8} $'\n')
+currentdate+=$randomWord
+
 
 echo ""
 echo "You have a total number of $used_num_of_cores cores"
